@@ -1,9 +1,10 @@
 ---
 - hosts: all
-  become: true
+  become: True
+  become_method: sudo
   tasks:
 
-   - name: 2nd project
-     copy:
-      src: ./
-      dest: /var/www/html/
+    - name: Deploy static website
+      copy:
+        src: /var/lib/jenkins/workspace/project3/ # We have define a html page
+        dest: /opt/tomcat/webapps/project3/
